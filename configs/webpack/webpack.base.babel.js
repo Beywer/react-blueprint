@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = function (options) {
@@ -6,9 +7,9 @@ module.exports = function (options) {
     entry: path.join(process.cwd(), 'src/app.js'),
 
     output: {
-      path: path.resolve(process.cwd(), "build"),
-      filename: "main[hash].js",
-      publicPath: "",
+      path: path.resolve(process.cwd(), 'build'),
+      filename: 'main[hash].js',
+      publicPath: '',
     },
 
     module: {
@@ -40,12 +41,18 @@ module.exports = function (options) {
             }
           ]
         },
-
         // Load own styles
         {
           test: /\.css$/,
           exclude: /node_modules/,
-          use: options.css
+          use: options.cssLoaders
+        },
+        // Load lib styles
+        {
+          test: /\.css$/,
+          exclude: /src/,
+          include: /node_modules/,
+          loaders: ['style-loader', 'css-loader'],
         },
       ]
     },
@@ -55,22 +62,28 @@ module.exports = function (options) {
         filename: 'index.html',
         template: 'src/index.html',
         minify: true,
-      })
+      }),
+
+      new webpack.DefinePlugin({
+        'process.env': {
+          NODE_ENV: JSON.stringify(process.env.NODE_ENV)
+        },
+      }),
     ].concat(options.plugins),
 
     resolve:
       {
         modules: [
-          "node_modules",
-          path.resolve(process.cwd(), "src")
+          'node_modules',
+          path.resolve(process.cwd(), 'src')
         ],
 
         extensions:
-          [".js", ".jsx", ".json"],
+          ['.js', '.jsx', '.json'],
 
         alias:
           {
-            // "module": path.resolve(__dirname, "app/third/module.js"),
+            // 'module': path.resolve(__dirname, 'app/third/module.js'),
           },
       },
 

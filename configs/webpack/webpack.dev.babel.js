@@ -4,15 +4,16 @@ module.exports = require('./webpack.base.babel.js')({
 
   imageNames: '[path][name].[ext]',
 
-  css: [
+  // Process own styles with hmr and don't allow CssModule uglify class names to mush
+  cssLoaders: [
     {
-      loader: "style-loader",
+      loader: 'style-loader',
       options: {
         hmr: true
       }
     },
     {
-      loader: "css-loader",
+      loader: 'css-loader',
       options: {
         modules: true,
         localIdentName: '[path][name]__[local]--[hash:base64:5]',
@@ -20,7 +21,7 @@ module.exports = require('./webpack.base.babel.js')({
       }
     },
     {
-      loader: "postcss-loader",
+      loader: 'postcss-loader',
       options: {
         config: {
           path: path.join(process.cwd(), 'configs/postcss/postcss.config.js')

@@ -6,7 +6,7 @@ const cssNanoOptions = {
 };
 
 module.exports = {
-  "plugins": {
+  plugins: {
     'cssnano': env === 'production' ? cssNanoOptions : false,
     // Supported browsers defined in browserlist section in package.json file
     'autoprefixer': {}
