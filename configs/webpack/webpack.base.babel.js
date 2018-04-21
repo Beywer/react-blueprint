@@ -7,7 +7,7 @@ module.exports = function (options) {
 
     output: {
       path: path.resolve(process.cwd(), "build"),
-      filename: "main.js",
+      filename: "main[hash].js",
       publicPath: "",
     },
 
@@ -20,7 +20,7 @@ module.exports = function (options) {
             {
               loader: 'file-loader',
               options: {
-                name: options.fileNames,
+                name: options.imageNames,
                 outputPath: 'img'
               }
             }
@@ -45,27 +45,7 @@ module.exports = function (options) {
         {
           test: /\.css$/,
           exclude: /node_modules/,
-          use: [
-            {
-              loader: "style-loader",
-              options: {
-                hmr: true
-              }
-            },
-            {
-              loader: "css-loader",
-              options: {
-                modules: true,
-                minimize: false,
-                localIdentName: '[path][name]__[local]--[hash:base64:5]',
-                importLoaders: 0
-              }
-            },
-            // {
-            //   loader: "postcss-loader",
-            //   options: {}
-            // }
-          ]
+          use: options.css
         },
       ]
     },

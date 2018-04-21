@@ -1,6 +1,34 @@
+const path = require('path');
+
 module.exports = require('./webpack.base.babel.js')({
 
-  fileNames: '[path][name].[ext]',
+  imageNames: '[path][name].[ext]',
+
+  css: [
+    {
+      loader: "style-loader",
+      options: {
+        hmr: true
+      }
+    },
+    {
+      loader: "css-loader",
+      options: {
+        modules: true,
+        localIdentName: '[path][name]__[local]--[hash:base64:5]',
+        importLoaders: 1
+      }
+    },
+    {
+      loader: "postcss-loader",
+      options: {
+        config: {
+          path: path.join(process.cwd(), 'configs/postcss/postcss.config.js')
+        }
+      }
+    }
+  ],
+
   plugins: [],
 
   devtool: 'eval-source-map',
