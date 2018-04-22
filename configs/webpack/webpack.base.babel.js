@@ -1,3 +1,4 @@
+/* eslint-disable */
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -27,7 +28,6 @@ module.exports = function (options) {
             }
           ]
         },
-
         // Transpile onw js and jsx files
         {
           test: /\.(js|jsx)$/,
@@ -71,21 +71,16 @@ module.exports = function (options) {
       }),
     ].concat(options.plugins),
 
-    resolve:
-      {
-        modules: [
-          'node_modules',
-          path.resolve(process.cwd(), 'src')
-        ],
+    resolve: {
+      modules: [
+        'node_modules',
+        path.resolve(process.cwd(), 'src')
+      ],
 
-        extensions:
-          ['.js', '.jsx', '.json'],
+      extensions: ['.js', '.jsx', '.json'],
 
-        alias:
-          {
-            // 'module': path.resolve(__dirname, 'app/third/module.js'),
-          },
-      },
+      alias: {},
+    },
 
     devtool: options.devtool,
     devServer: options.devServer,

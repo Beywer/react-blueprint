@@ -1,3 +1,4 @@
+/* eslint-disable */
 const path = require('path');
 
 module.exports = require('./webpack.base.babel.js')({
@@ -8,9 +9,6 @@ module.exports = require('./webpack.base.babel.js')({
   cssLoaders: [
     {
       loader: 'style-loader',
-      options: {
-        hmr: true
-      }
     },
     {
       loader: 'css-loader',
