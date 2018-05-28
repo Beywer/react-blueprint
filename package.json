@@ -9,6 +9,7 @@
     "lint:fix": "npm run lint -- --fix",
     "format": "prettier-eslint \"src/**/*.{js,jsx}\" --write",
     "precommit": "lint-staged",
+    "postcommit": "git add *",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
