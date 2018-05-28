@@ -1,3 +1,4 @@
+/* eslint-disable */
 const env = process.env.NODE_ENV;
 
 const cssNanoOptions = {
@@ -7,8 +8,8 @@ const cssNanoOptions = {
 
 module.exports = {
   plugins: {
-    'cssnano': env === 'production' ? cssNanoOptions : false,
+    cssnano: env === "production" ? cssNanoOptions : false,
     // Supported browsers defined in browserlist section in package.json file
-    'autoprefixer': {}
+    autoprefixer: {}
   }
 };
