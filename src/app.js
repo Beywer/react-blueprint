@@ -14,3 +14,9 @@ ReactDOM.render(
   </Provider>,
   appDiv,
 );
+
+log.trace('This is logger trace example');
+log.debug('This is logger debug example');
+log.info('This is logger info example');
+log.warn('This is logger warn example');
+log.error('This is logger error example');

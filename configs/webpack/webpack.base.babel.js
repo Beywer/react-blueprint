@@ -3,7 +3,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = function (options) {
+module.exports = function(options) {
   return {
     entry: path.join(process.cwd(), 'src/app.js'),
 
@@ -23,10 +23,10 @@ module.exports = function (options) {
               loader: 'file-loader',
               options: {
                 name: options.imageNames,
-                outputPath: 'img'
-              }
-            }
-          ]
+                outputPath: 'img',
+              },
+            },
+          ],
         },
         // Transpile onw js and jsx files
         {
@@ -36,16 +36,16 @@ module.exports = function (options) {
             {
               loader: 'babel-loader',
               options: {
-                extends: path.resolve(process.cwd(), 'configs/babel/.babelrc')
-              }
-            }
-          ]
+                extends: path.resolve(process.cwd(), 'configs/babel/.babelrc'),
+              },
+            },
+          ],
         },
         // Load own styles
         {
           test: /\.css$/,
           exclude: /node_modules/,
-          use: options.cssLoaders
+          use: options.cssLoaders,
         },
         // Load lib styles
         {
@@ -54,7 +54,7 @@ module.exports = function (options) {
           include: /node_modules/,
           loaders: ['style-loader', 'css-loader'],
         },
-      ]
+      ],
     },
 
     plugins: [
@@ -66,16 +66,17 @@ module.exports = function (options) {
 
       new webpack.DefinePlugin({
         'process.env': {
-          NODE_ENV: JSON.stringify(process.env.NODE_ENV)
+          NODE_ENV: JSON.stringify(process.env.NODE_ENV),
         },
+      }),
+
+      new webpack.ProvidePlugin({
+        log: 'loglevel',
       }),
     ].concat(options.plugins),
 
     resolve: {
-      modules: [
-        'node_modules',
-        path.resolve(process.cwd(), 'src')
-      ],
+      modules: ['node_modules', path.resolve(process.cwd(), 'src')],
 
       extensions: ['.js', '.jsx', '.json'],
 

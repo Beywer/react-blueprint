@@ -34,6 +34,7 @@ module.exports = {
     'import/first': 'off',
     'no-undef': 'off',
     'no-use-before-define': 'off',
+    'no-underscore-dangle': 'off',
     'function-paren-newline': 'off',
     'no-multi-assign': 'off',
     'spaced-comment': 'off',
