@@ -3,6 +3,8 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const version = require('../../package.json').version;
+
 module.exports = function(options) {
   return {
     entry: path.join(process.cwd(), 'src/app.js'),
@@ -67,6 +69,7 @@ module.exports = function(options) {
       new webpack.DefinePlugin({
         'process.env': {
           NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+          VERSION: JSON.stringify(version),
         },
       }),
 
