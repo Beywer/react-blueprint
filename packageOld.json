@@ -1,0 +1,52 @@
+{
+  "name": "react-blueprint",
+  "version": "2.0.0",
+  "description": "My react app skeleton",
+  "scripts": {
+    "start": "cross-env NODE_ENV='development' webpack-dev-server --config configs/webpack/webpack.dev.babel.js",
+    "build": "cross-env NODE_ENV='production' webpack --config configs/webpack/webpack.prod.babel.js",
+    "lint": "eslint \"src/**/*.{js,jsx}\"",
+    "lint:fix": "npm run lint -- --fix",
+    "format": "prettier-eslint \"src/**/*.{js,jsx}\" --write",
+    "precommit": "lint-staged",
+    "postcommit": "git add *",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "prop-types": "^15.6.1",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.3",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "cross-env": "^5.1.4",
+    "css-loader": "^0.28.11",
+    "empty-module": "0.0.2",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
+    "file-loader": "^1.1.11",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.0.4",
+    "mini-css-extract-plugin": "^0.4.4",
+    "path": "^0.12.7",
+    "postcss-loader": "^2.1.4",
+    "prettier-eslint-cli": "^4.7.1",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.25.0",
+    "webpack-dev-server": "^3.1.10"
+  },
+  "browserslist": [
+    "last 5 versions",
+    "ie >= 10"
+  ]
+}
