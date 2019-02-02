@@ -1,6 +1,6 @@
 {
   "name": "react-blueprint",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "My react app skeleton",
   "scripts": {
     "start": "cross-env NODE_ENV='development' webpack-dev-server --config configs/webpack/webpack.dev.js",
