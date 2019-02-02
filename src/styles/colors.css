@@ -1,0 +1,10 @@
+@value bg: #f3f3f3;
+@value hover: #ccc;
+
+.testComposes {
+  background-color: bg;
+}
+
+.testComposes:hover {
+  background-color: hover;
+}

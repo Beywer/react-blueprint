@@ -1,0 +1,19 @@
+.appRoot {
+  composes: testComposes from './../colors.css';
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  vertical-align: middle;
+}
+
+.text {
+  color: cadetblue;
+  vertical-align: middle;
+}

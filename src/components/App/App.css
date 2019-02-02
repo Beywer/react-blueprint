@@ -1,8 +1,0 @@
-@value mainColor from './test.css';
-
-.app {
-  composes: fullSize from './test.css';
-  width: 50%;
-  background-color: aliceblue;
-  color: mainColor;
-}

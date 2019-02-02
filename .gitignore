@@ -1,7 +1,3 @@
-# IntelliJ project files
 .idea
-out
-gen
-
-/build/
-/node_modules/
+build
+node_modules

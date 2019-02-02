@@ -2,14 +2,14 @@
 const env = process.env.NODE_ENV;
 
 const cssNanoOptions = {
-  // Because CssNano removes prefixes for less size. G -> loGic
-  autoprefixer: false
+    // Because CssNano removes prefixes for less size. G -> loGic
+    autoprefixer: false
 };
 
 module.exports = {
-  plugins: {
-    cssnano: env === "production" ? cssNanoOptions : false,
-    // Supported browsers defined in browserlist section in package.json file
-    autoprefixer: {}
-  }
+    plugins: {
+        cssnano: env === "production" ? cssNanoOptions : false,
+        // Supported browsers defined in browserlist section in package.json file
+        autoprefixer: {}
+    }
 };
