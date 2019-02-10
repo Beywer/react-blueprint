@@ -5,17 +5,21 @@ import * as React from 'react';
 import styles from './Todo.css';
 
 type ITodoProps = ITodo & {
-    toggleTodo: () => void;
+    toggleTodo: (todoId: string) => void;
 };
 
 export class Todo extends React.Component<ITodoProps> {
+    private handleTodoClick = () => {
+        this.props.toggleTodo(this.props.id);
+    };
+
     public render() {
-        const {title, completed, user, toggleTodo} = this.props;
+        const {title, completed, user} = this.props;
         return (
             <div className={styles.todo}>
                 <button
                     className={cn(styles.toggleTodo, completed && styles.completed)}
-                    onClick={toggleTodo}
+                    onClick={this.handleTodoClick}
                 >
                     {title}
                 </button>

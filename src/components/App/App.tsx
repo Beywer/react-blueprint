@@ -6,11 +6,12 @@ import styles from './App.css';
 
 interface IAppProps {
     todos: ITodo[];
+    toggleTodo: (todoId: string) => void;
 }
 
 export class App extends React.Component<IAppProps> {
     public render() {
-        const {todos} = this.props;
+        const {todos, toggleTodo} = this.props;
 
         return (
             <div>
@@ -24,7 +25,10 @@ export class App extends React.Component<IAppProps> {
                         Type Script Todo list
                     </h1>
                 </div>
-                <TodosList todos={todos}/>
+                <TodosList
+                    todos={todos}
+                    toggleTodo={toggleTodo}
+                />
             </div>
         );
     }

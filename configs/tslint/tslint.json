@@ -10,6 +10,12 @@
       "single",
       "jsx-double",
       "avoid-escape"
+    ],
+    "member-ordering": false,
+    "semicolon": [
+      true,
+      "always",
+      "ignore-bound-class-methods"
     ]
   },
   "rulesDirectory": []
