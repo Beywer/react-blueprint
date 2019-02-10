@@ -1,19 +1,28 @@
+import {TodosList} from 'components/TodosList';
+import {ITodo} from 'domain/ITodo';
+import {IUser} from 'domain/IUser';
 import * as React from 'react';
-import image from '../images/test.svg';
+// import image from '../images/test.svg';
 import styles from '../styles/components/App.css';
 
-export class App extends React.Component {
+interface IAppProps {
+    todos: ITodo[];
+    users: IUser[];
+    loadAllTodos: () => void;
+    loadAllUsers: () => void;
+}
+
+export class App extends React.Component<IAppProps> {
+    public componentDidMount(): void {
+        setTimeout(this.props.loadAllTodos, 500);
+    }
+
     public render() {
+        const {todos} = this.props;
+
         return (
             <div className={styles.appRoot}>
-                <img
-                    className={styles.icon}
-                    src={image}
-                    alt="test image"
-                />
-                <span className={styles.text}>
-                    This is styled TSX component AZAZA ME!!!
-                </span>
+                <TodosList todos={todos}/>
             </div>
         );
     }
