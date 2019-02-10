@@ -1,4 +1,4 @@
-import {Action} from 'redux';
+import {Action, AnyAction} from 'redux';
 import {ThunkAction, ThunkDispatch} from 'redux-thunk';
 
 interface IAnyObject {
@@ -7,3 +7,5 @@ interface IAnyObject {
 
 export type GeneralThunkAction<R> = ThunkAction<R, IAnyObject, undefined, Action>;
 export type GeneralThunkDispatch = ThunkDispatch<IAnyObject, undefined, Action>;
+
+export type PayloadedAction<P> = AnyAction & { payload: P };

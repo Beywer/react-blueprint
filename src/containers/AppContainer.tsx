@@ -1,15 +1,10 @@
 import {App} from 'components/App';
 import {connect} from 'react-redux';
-import {bindActionCreators, Dispatch} from 'redux';
-import {loadAllTodos} from 'store/actions/todoActions';
-import {loadAllUsers} from 'store/actions/userActions';
 import {IRootState} from 'store/reducers/rootReducer';
+import {allTodosSelector} from 'store/selectros/todosSelectors';
 
-const mapStateToProps = (state: IRootState) => state;
+const mapStateToProps = (state: IRootState) => ({
+    todos: allTodosSelector(state),
+});
 
-const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators({
-    loadAllTodos,
-    loadAllUsers,
-}, dispatch);
-
-export const AppContainer = connect(mapStateToProps, mapDispatchToProps)(App);
+export const AppContainer = connect(mapStateToProps)(App);
