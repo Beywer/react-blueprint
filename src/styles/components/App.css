@@ -1,5 +1,4 @@
-.appRoot {
-  composes: testComposes from './../colors.css';
+.example {
   width: 100%;
   display: flex;
   flex-flow: row nowrap;
