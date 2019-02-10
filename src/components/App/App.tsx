@@ -1,8 +1,8 @@
-import {TodosList} from 'components/TodosList';
+import {TodosList} from 'components/TodoList/TodosList';
 import {ITodo} from 'domain/ITodo';
+import image from 'images/test.svg';
 import * as React from 'react';
-import image from '../images/test.svg';
-import styles from '../styles/components/App.css';
+import styles from './App.css';
 
 interface IAppProps {
     todos: ITodo[];

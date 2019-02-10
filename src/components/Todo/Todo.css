@@ -1,0 +1,21 @@
+.todo {
+  box-sizing: border-box;
+  padding: 6px;
+}
+
+.toggleTodo {
+  composes: clickable from '../../styles/app.css';
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  line-height: 21px;
+  padding: 0 6px;
+  color: #0000ee;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.toggleTodo.completed {
+  text-decoration: line-through underline;
+}

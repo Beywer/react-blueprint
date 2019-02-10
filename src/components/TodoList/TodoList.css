@@ -1,0 +1,12 @@
+.todoList {
+  width: 100%;
+  list-style: none;
+  padding: 16px 28px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.todoItem {
+  margin: 8px 0;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.15);
+}

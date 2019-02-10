@@ -13,6 +13,7 @@
     "stylelint:fix": "npm run stylelint -- --fix"
   },
   "dependencies": {
+    "classnames": "^2.2.6",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-redux": "^6.0.0",
@@ -26,6 +27,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.3.1",
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-react": "^7.0.0",
+    "@types/classnames": "^2.2.7",
     "@types/node": "^10.12.21",
     "@types/react": "^16.8.1",
     "@types/react-dom": "^16.0.11",
