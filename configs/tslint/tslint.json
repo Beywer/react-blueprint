@@ -11,12 +11,11 @@
       "jsx-double",
       "avoid-escape"
     ],
+    "object-literal-sort-keys": false,
     "member-ordering": false,
-    "semicolon": [
-      true,
-      "always",
-      "ignore-bound-class-methods"
-    ]
+    "max-line-length": false,
+    "semicolon": false,
+    "interface-name": false
   },
   "rulesDirectory": []
 }
