@@ -1,8 +1,7 @@
 /* eslint-disable */
-const cwd = process.cwd();
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 module.exports = require('./webpack.base')({
     mode: 'production',
@@ -28,6 +27,7 @@ module.exports = require('./webpack.base')({
         // Minify js
         new UglifyJsPlugin(),
         // Remove previous build
-        new CleanWebpackPlugin(['build'], {root: cwd}),
+        // For some reason 'cleanOnceBeforeBuildPatterns' does nothing
+        new CleanWebpackPlugin({cleanAfterEveryBuildPatterns: ['./build'], verbose: true}),
     ],
 });

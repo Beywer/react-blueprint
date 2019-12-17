@@ -50,8 +50,10 @@ module.exports = function (options) {
                         {
                             loader: 'css-loader',
                             options: {
-                                modules: true,
-                                localIdentName: options.cssClassNames,
+                                modules: {
+                                    mode: 'local',
+                                    localIdentName: options.cssClassNames,
+                                },
                                 importLoaders: 1
                             }
                         },
