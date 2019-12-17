@@ -1,4 +1,4 @@
-import * as cn from 'classnames';
+import cn from 'classnames';
 import {UserInfo} from 'components/UserInfo/UserInfo';
 import {ITodo} from 'domain/ITodo';
 import * as React from 'react';
@@ -23,7 +23,9 @@ export class Todo extends React.Component<ITodoProps> {
                 >
                     {title}
                 </button>
-                <UserInfo {...user}/>
+                {user && (
+                    <UserInfo {...user}/>
+                )}
             </div>
         );
     }

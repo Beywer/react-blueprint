@@ -3,10 +3,12 @@
     "outDir": "./dist/",
     "baseUrl": "src",
     "noImplicitAny": true,
+    "strictNullChecks": true,
     "sourceMap": true,
     "moduleResolution": "node",
-    "module": "es6",
-    "target": "es6",
+    "module": "esnext",
+    "target": "es2018",
+    "esModuleInterop": true,
     "jsx": "react",
     "allowJs": true
   }
