@@ -1,8 +1,8 @@
-import { IUser } from 'domain/IUser';
+import { User } from 'domain/User';
 import * as React from 'react';
 import styles from './UserInfo.css';
 
-export class UserInfo extends React.Component<IUser> {
+export class UserInfo extends React.Component<User> {
     public render() {
         const { name, username, phone } = this.props;
         return (

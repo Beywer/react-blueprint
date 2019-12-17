@@ -1,13 +1,13 @@
 import { getAllTodos } from 'api/todoApi';
-import { ITodo } from 'domain/ITodo';
+import { Todo } from 'domain/Todo';
 import { IRootState } from 'store/reducers/rootReducer';
 import { GeneralThunkAction, PayloadedAction } from 'utils/store/actionTypes';
 
 export const SAVE_TODOS = 'SAVE_TODOS';
 
-export type SaveTodosAction = PayloadedAction<ITodo[]>;
+export type SaveTodosAction = PayloadedAction<Todo[]>;
 
-export function saveTodos(todos: ITodo[]): SaveTodosAction {
+export function saveTodos(todos: Todo[]): SaveTodosAction {
     return { type: SAVE_TODOS, payload: todos };
 }
 
@@ -20,7 +20,7 @@ export function toggleTodo(todoId: string): ToggleTodoAction {
     };
 }
 
-export type FetchAllTodosAction = GeneralThunkAction<Promise<ITodo[]>>;
+export type FetchAllTodosAction = GeneralThunkAction<Promise<Todo[]>>;
 
 export function fetchAllTodos(): FetchAllTodosAction {
     return (dispatch) => {

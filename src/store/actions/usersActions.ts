@@ -1,20 +1,20 @@
 import { getAllUsers } from 'api/usersApi';
-import { IUser } from 'domain/IUser';
+import { User } from 'domain/User';
 import { GeneralThunkAction, PayloadedAction } from 'utils/store/actionTypes';
 
 export const SAVE_USERS = 'SAVE_USERS';
 
-export type SaveUsersAction = PayloadedAction<IUser[]>;
+export type SaveUsersAction = PayloadedAction<User[]>;
 
-function saveUsers(users: IUser[]): SaveUsersAction {
+function saveUsers(users: User[]): SaveUsersAction {
     return { type: SAVE_USERS, payload: users };
 }
 
-export type FetchAllUsersAction = GeneralThunkAction<Promise<IUser[]>>;
+export type FetchAllUsersAction = GeneralThunkAction<Promise<User[]>>;
 
 export function fetchAllUsers(): FetchAllUsersAction {
     return (dispatch) => {
-        return getAllUsers().then((users: IUser[]) => {
+        return getAllUsers().then((users: User[]) => {
             dispatch(saveUsers(users));
             return users;
         });

@@ -1,14 +1,14 @@
 import cn from 'classnames';
 import { UserInfo } from 'components/UserInfo/UserInfo';
-import { ITodo } from 'domain/ITodo';
+import { Todo } from 'domain/Todo';
 import * as React from 'react';
 import styles from './Todo.css';
 
-type ITodoProps = ITodo & {
+type ITodoProps = Todo & {
     toggleTodo: (todoId: string) => void;
 };
 
-export class Todo extends React.Component<ITodoProps> {
+export class TodoC extends React.Component<ITodoProps> {
     private handleTodoClick = () => {
         this.props.toggleTodo(this.props.id);
     };

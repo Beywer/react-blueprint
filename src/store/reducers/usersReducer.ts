@@ -1,10 +1,10 @@
-import { IUser } from 'domain/IUser';
+import { User } from 'domain/User';
 import { AnyAction } from 'redux';
 import { SAVE_USERS, SaveUsersAction } from 'store/actions/usersActions';
 import { insertIntoObject } from 'utils/insertIntoObject';
 
 export interface IUsersState {
-    usersById: { [key: number]: IUser };
+    usersById: { [key: number]: User };
 }
 
 const initialState: IUsersState = {

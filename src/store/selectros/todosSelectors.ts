@@ -1,4 +1,4 @@
-import { ITodo } from 'domain/ITodo';
+import { Todo } from 'domain/Todo';
 import * as reselect from 'reselect';
 import { fetchAllTodos } from 'store/actions/todosActions';
 import { store } from 'store/configureStore';
@@ -8,7 +8,7 @@ import { GeneralThunkDispatch } from 'utils/store/actionTypes';
 
 let isAllTodosLoading: boolean = false;
 
-function storeTodosSelector(state: IRootState): ITodo[] {
+function storeTodosSelector(state: IRootState): Todo[] {
     const todosById = state.todos.todosById;
     if (Object.keys(todosById).length === 0 && !isAllTodosLoading) {
         isAllTodosLoading = true;
@@ -27,5 +27,5 @@ function storeTodosSelector(state: IRootState): ITodo[] {
 
 export const allTodosSelector = reselect.createSelector(
     [storeTodosSelector],
-    (allTodos: ITodo[]) => allTodos,
+    (allTodos: Todo[]) => allTodos,
 );

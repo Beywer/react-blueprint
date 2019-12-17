@@ -1,11 +1,11 @@
 import { TodosList } from 'components/TodoList/TodosList';
-import { ITodo } from 'domain/ITodo';
+import { Todo } from 'domain/Todo';
 import image from 'images/test.svg';
 import * as React from 'react';
 import styles from './App.css';
 
 interface IAppProps {
-    todos: ITodo[];
+    todos: Todo[];
     toggleTodo: (todoId: string) => void;
 }
 
@@ -16,10 +16,10 @@ export class App extends React.Component<IAppProps> {
         return (
             <div>
                 <div className={styles.example}>
-                    <img className={styles.icon} src={image} alt="random svg icon" />
+                    <img className={styles.icon} src={image} alt="random svg icon"/>
                     <h1 className={styles.text}>Type Script Todo list</h1>
                 </div>
-                <TodosList todos={todos} toggleTodo={toggleTodo} />
+                <TodosList todos={todos} toggleTodo={toggleTodo}/>
             </div>
         );
     }

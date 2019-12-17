@@ -1,10 +1,10 @@
-import { ITodo } from 'domain/ITodo';
+import { Todo } from 'domain/Todo';
 import { AnyAction } from 'redux';
 import { SAVE_TODOS, SaveTodosAction } from 'store/actions/todosActions';
 import { insertIntoObject } from 'utils/insertIntoObject';
 
 export interface ITodosState {
-    todosById: { [key: string]: ITodo };
+    todosById: { [key: string]: Todo };
 }
 
 const initialState: ITodosState = {

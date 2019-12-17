@@ -1,9 +1,9 @@
-import { IUser } from 'domain/IUser';
+import { User } from 'domain/User';
 
-export interface ITodo {
+export interface Todo {
     userId: number;
     id: string;
     title: string;
     completed: boolean;
-    user?: IUser;
+    user?: User;
 }

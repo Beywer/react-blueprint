@@ -1,4 +1,4 @@
-import { IUser } from 'domain/IUser';
+import { User } from 'domain/User';
 import { fetchAllUsers } from 'store/actions/usersActions';
 import { store } from 'store/configureStore';
 import { IRootState } from 'store/reducers/rootReducer';
@@ -8,7 +8,7 @@ let isAllUsersLoaded: boolean = false;
 
 export const usersByIdSelector = ({
     users: { usersById },
-}: IRootState): { [key: string]: IUser } => {
+}: IRootState): { [key: string]: User } => {
     if (Object.keys(usersById).length === 0 && !isAllUsersLoaded) {
         isAllUsersLoaded = true;
         (store.dispatch as GeneralThunkDispatch)(fetchAllUsers()).then(

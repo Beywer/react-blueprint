@@ -1,4 +1,4 @@
-export interface ILatLng {
+export interface LatLng {
     lat: number;
     lng: number;
 }

@@ -1,10 +1,10 @@
-import { Todo } from 'components/Todo/Todo';
-import { ITodo } from 'domain/ITodo';
+import { TodoC } from 'components/Todo/Todo';
+import { Todo } from 'domain/Todo';
 import * as React from 'react';
 import styles from './TodoList.css';
 
 interface ITodosListProps {
-    todos: ITodo[];
+    todos: Todo[];
     toggleTodo: (todoId: string) => void;
 }
 
@@ -15,7 +15,7 @@ export class TodosList extends React.Component<ITodosListProps> {
             <ul className={styles.todoList}>
                 {todos.map((todo) => (
                     <li className={styles.todoItem} key={todo.id}>
-                        <Todo {...todo} toggleTodo={toggleTodo} />
+                        <TodoC {...todo} toggleTodo={toggleTodo}/>
                     </li>
                 ))}
             </ul>
