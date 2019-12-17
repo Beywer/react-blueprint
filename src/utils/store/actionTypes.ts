@@ -1,5 +1,5 @@
-import {Action, AnyAction} from 'redux';
-import {ThunkAction, ThunkDispatch} from 'redux-thunk';
+import { Action, AnyAction } from 'redux';
+import { ThunkAction, ThunkDispatch } from 'redux-thunk';
 
 interface IAnyObject {
     [key: string]: any;

@@ -1,4 +1,4 @@
-import {IUser} from 'domain/IUser';
+import { IUser } from 'domain/IUser';
 
 export interface ITodo {
     userId: number;

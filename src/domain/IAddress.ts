@@ -1,4 +1,4 @@
-import {ILatLng} from 'domain/ILatLng';
+import { ILatLng } from 'domain/ILatLng';
 
 export interface IAddress {
     street: string;

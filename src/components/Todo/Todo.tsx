@@ -1,6 +1,6 @@
 import cn from 'classnames';
-import {UserInfo} from 'components/UserInfo/UserInfo';
-import {ITodo} from 'domain/ITodo';
+import { UserInfo } from 'components/UserInfo/UserInfo';
+import { ITodo } from 'domain/ITodo';
 import * as React from 'react';
 import styles from './Todo.css';
 
@@ -14,7 +14,7 @@ export class Todo extends React.Component<ITodoProps> {
     };
 
     public render() {
-        const {title, completed, user} = this.props;
+        const { title, completed, user } = this.props;
         return (
             <div className={styles.todo}>
                 <button
@@ -23,9 +23,7 @@ export class Todo extends React.Component<ITodoProps> {
                 >
                     {title}
                 </button>
-                {user && (
-                    <UserInfo {...user}/>
-                )}
+                {user && <UserInfo {...user} />}
             </div>
         );
     }
