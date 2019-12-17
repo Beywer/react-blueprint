@@ -12,7 +12,7 @@
       }
     },
     {
-      "files": "*.scss",
+      "files": "*.css",
       "options": {
         "tabWidth": 2
       }
