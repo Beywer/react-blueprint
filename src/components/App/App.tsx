@@ -12,9 +12,9 @@ interface Props {
 export const App: React.FC<Props> = ({ todos, toggleTodo }) => (
     <div>
         <div className={styles.example}>
-            <img className={styles.icon} src={image} alt="random svg icon"/>
+            <img className={styles.icon} src={image} alt="random svg icon" />
             <h1 className={styles.text}>Type Script Todo list</h1>
         </div>
-        <TodosList todos={todos} toggleTodo={toggleTodo}/>
+        <TodosList todos={todos} toggleTodo={toggleTodo} />
     </div>
 );
