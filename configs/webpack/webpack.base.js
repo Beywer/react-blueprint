@@ -10,7 +10,7 @@ const libStyles = require('./presets/libStyles');
 const htmlWebpackPlugin = require('./plugins/htmlWebpackPlugin');
 const definePlugin = require('./plugins/definePlugin');
 
-module.exports = function(options) {
+module.exports = function({ mode, optimization, imageNames, cssClassNames, cssInjectLoader, plugins, ...rest }) {
     return {
         entry: './src/app.tsx',
         output: {
@@ -20,18 +20,18 @@ module.exports = function(options) {
 
         module: {
             rules: [
-                projectAssets(options.imageNames),
+                projectAssets(imageNames),
                 projectCode(),
-                projectModulesStyles(options.cssInjectLoader, options.cssClassNames),
-                projectGlobalStyles(options.cssInjectLoader),
-                libStyles(options.cssInjectLoader),
+                projectModulesStyles(cssInjectLoader, cssClassNames),
+                projectGlobalStyles(cssInjectLoader),
+                libStyles(cssInjectLoader),
             ],
         },
 
         plugins: [
             htmlWebpackPlugin(),
             definePlugin(),
-        ].concat(options.plugins || []),
+        ].concat(plugins || []),
 
         resolve: {
             modules: [
@@ -42,9 +42,8 @@ module.exports = function(options) {
         },
 
         target: 'web',
-        mode: options.mode,
-        devServer: options.devServer,
-        devtool: options.devtool,
-        optimization: options.optimization,
+        mode: mode,
+
+        ...rest,
     };
 };
