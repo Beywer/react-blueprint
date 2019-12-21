@@ -1,6 +1,6 @@
 import { getAllTodos } from 'api/todoApi';
 import { Todo } from 'domain/Todo';
-import { IRootState } from 'store/reducers/rootReducer';
+import { IRootState } from 'store/rootReducer';
 import { GeneralThunkAction, PayloadedAction } from 'utils/store/actionTypes';
 
 export const SAVE_TODOS = 'SAVE_TODOS';

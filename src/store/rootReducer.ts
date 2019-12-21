@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import { ITodosState, todosReducer } from 'store/reducers/todosReducer';
-import { IUsersState, usersReducer } from 'store/reducers/usersReducer';
+import { ITodosState, todosReducer } from 'store/todo/todosReducer';
+import { IUsersState, usersReducer } from 'store/user/usersReducer';
 
 export interface IRootState {
     todos: ITodosState;

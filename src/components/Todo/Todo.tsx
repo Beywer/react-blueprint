@@ -4,11 +4,11 @@ import { Todo } from 'domain/Todo';
 import * as React from 'react';
 import styles from './Todo.css';
 
-type ITodoProps = Todo & {
+type Props = Todo & {
     toggleTodo: (todoId: string) => void;
 };
 
-export class TodoC extends React.Component<ITodoProps> {
+export class TodoC extends React.Component<Props> {
     private handleTodoClick = () => {
         this.props.toggleTodo(this.props.id);
     };

@@ -1,9 +1,9 @@
 import { App } from 'components/App/App';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
-import { toggleTodo } from 'store/actions/todosActions';
-import { IRootState } from 'store/reducers/rootReducer';
-import { allTodosSelector } from 'store/selectros/todosSelectors';
+import { toggleTodo } from 'store/todo/todosActions';
+import { IRootState } from 'store/rootReducer';
+import { allTodosSelector } from 'store/todo/todosSelectors';
 
 const mapStateToProps = (state: IRootState) => ({
     todos: allTodosSelector(state),

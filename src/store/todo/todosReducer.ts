@@ -1,6 +1,6 @@
 import { Todo } from 'domain/Todo';
 import { AnyAction } from 'redux';
-import { SAVE_TODOS, SaveTodosAction } from 'store/actions/todosActions';
+import { SAVE_TODOS, SaveTodosAction } from 'store/todo/todosActions';
 import { insertIntoObject } from 'utils/insertIntoObject';
 
 export interface ITodosState {

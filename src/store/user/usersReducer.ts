@@ -1,6 +1,6 @@
 import { User } from 'domain/User';
 import { AnyAction } from 'redux';
-import { SAVE_USERS, SaveUsersAction } from 'store/actions/usersActions';
+import { SAVE_USERS, SaveUsersAction } from 'store/user/usersActions';
 import { insertIntoObject } from 'utils/insertIntoObject';
 
 export interface IUsersState {

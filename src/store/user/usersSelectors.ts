@@ -1,7 +1,7 @@
 import { User } from 'domain/User';
-import { fetchAllUsers } from 'store/actions/usersActions';
+import { fetchAllUsers } from 'store/user/usersActions';
 import { store } from 'store/configureStore';
-import { IRootState } from 'store/reducers/rootReducer';
+import { IRootState } from 'store/rootReducer';
 import { GeneralThunkDispatch } from 'utils/store/actionTypes';
 
 let isAllUsersLoaded: boolean = false;

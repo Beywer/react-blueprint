@@ -1,9 +1,9 @@
 import { Todo } from 'domain/Todo';
 import * as reselect from 'reselect';
-import { fetchAllTodos } from 'store/actions/todosActions';
+import { fetchAllTodos } from 'store/todo/todosActions';
 import { store } from 'store/configureStore';
-import { IRootState } from 'store/reducers/rootReducer';
-import { usersByIdSelector } from 'store/selectros/usersSelectors';
+import { IRootState } from 'store/rootReducer';
+import { usersByIdSelector } from 'store/user/usersSelectors';
 import { GeneralThunkDispatch } from 'utils/store/actionTypes';
 
 let isAllTodosLoading: boolean = false;
