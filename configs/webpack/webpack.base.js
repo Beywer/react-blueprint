@@ -44,6 +44,11 @@ module.exports = function({ mode, optimization, imageNames, cssClassNames, cssIn
         target: 'web',
         mode: mode,
 
+        stats: {
+            // Hides massive "Child mini-css-extract-plugin ..." logs
+            children: false,
+        },
+
         ...rest,
     };
 };
