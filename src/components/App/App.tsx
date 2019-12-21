@@ -2,7 +2,7 @@ import { TodosList } from 'components/TodoList/TodosList';
 import { Todo } from 'domain/Todo';
 import image from 'images/test.svg';
 import * as React from 'react';
-import styles from './App.css';
+import styles from './App.scss';
 
 interface Props {
     todos: Todo[];
@@ -18,4 +18,3 @@ export const App: React.FC<Props> = ({ todos, toggleTodo }) => (
         <TodosList todos={todos} toggleTodo={toggleTodo}/>
     </div>
 );
-

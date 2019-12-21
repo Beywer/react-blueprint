@@ -3,7 +3,8 @@ const cwd = process.cwd();
 
 const projectCode = require('./presets/projectCode');
 const projectAssets = require('./presets/projectAssets');
-const projectStyles = require('./presets/projectStyles');
+const projectModulesStyles = require('./presets/projectModulesStyles');
+const projectGlobalStyles = require('./presets/projectGlobalStyles');
 const libStyles = require('./presets/libStyles');
 
 const htmlWebpackPlugin = require('./plugins/htmlWebpackPlugin');
@@ -21,7 +22,8 @@ module.exports = function(options) {
             rules: [
                 projectAssets(options.imageNames),
                 projectCode(),
-                projectStyles(options.cssInjectLoader, options.cssClassNames),
+                projectModulesStyles(options.cssInjectLoader, options.cssClassNames),
+                projectGlobalStyles(options.cssInjectLoader),
                 libStyles(options.cssInjectLoader),
             ],
         },

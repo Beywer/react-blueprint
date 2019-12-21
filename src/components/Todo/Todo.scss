@@ -4,7 +4,7 @@
 }
 
 .toggleTodo {
-  composes: clickable from '../../styles/app.css';
+  composes: clickable from '../../styles/app.scss';
   background: none;
   border: none;
   outline: none;
