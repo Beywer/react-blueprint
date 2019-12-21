@@ -1,7 +1,13 @@
 const path = require('path');
 const cwd = process.cwd();
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const projectCode = require('./presets/projectCode');
+const projectAssets = require('./presets/projectAssets');
+const projectStyles = require('./presets/projectStyles');
+const libStyles = require('./presets/libStyles');
+
+const htmlWebpackPlugin = require('./plugins/htmlWebpackPlugin');
+const definePlugin = require('./plugins/definePlugin');
 
 module.exports = function(options) {
     return {
@@ -13,87 +19,16 @@ module.exports = function(options) {
 
         module: {
             rules: [
-                // Load images
-                {
-                    test: /\.(png|jpg|gif|svg)$/,
-                    use: [
-                        {
-                            loader: 'file-loader',
-                            options: {
-                                name: options.imageNames,
-                                outputPath: 'img',
-                            },
-                        },
-                    ],
-                },
-                {
-                    test: /\.tsx?$/,
-                    exclude: /node_modules/,
-                    loaders: [
-                        {
-                            loader: 'babel-loader',
-                            options: {
-                                configFile: path.join(cwd, 'configs/babel/babel.config.js'),
-                            },
-                        },
-                        'ts-loader',
-                    ],
-                },
-                // Load own styles
-                {
-                    test: /\.css$/,
-                    exclude: /node_modules/,
-                    use: [
-                        {
-                            loader: 'style-loader',
-                        },
-                        {
-                            loader: 'css-loader',
-                            options: {
-                                modules: {
-                                    mode: 'local',
-                                    localIdentName: options.cssClassNames,
-                                },
-                                importLoaders: 1,
-                            },
-                        },
-                        {
-                            loader: 'postcss-loader',
-                            options: {
-                                config: {
-                                    path: path.join(cwd, 'configs/postcss/postcss.config.js'),
-                                },
-                            },
-                        },
-                    ],
-                },
-                // Load lib styles
-                {
-                    test: /\.css$/,
-                    exclude: /src/,
-                    include: /node_modules/,
-                    loaders: ['style-loader', 'css-loader'],
-                },
+                projectAssets(options.imageNames),
+                projectCode(),
+                projectStyles(options.cssInjectLoader, options.cssClassNames),
+                libStyles(options.cssInjectLoader),
             ],
         },
 
         plugins: [
-            new HtmlWebpackPlugin({
-                filename: 'index.html',
-                template: 'src/index.html',
-                // minify: true, // seems it doesn't work
-            }),
-
-            new webpack.DefinePlugin({
-                'process.env': {
-                    NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-                },
-            }),
-
-            // // Moment contains require('./locale' + name) string. Webpack think that he have to add into bundle all locales
-            // // even if they doesn't used. Empty-module prevent webpack from adding unused locales into bundle.
-            // // All needed locales have to be imported by hand.
-            // new webpack.ContextReplacementPlugin(/\.\/locale$/, 'empty-module', false, /js$/),
+            htmlWebpackPlugin(),
+            definePlugin(),
         ].concat(options.plugins || []),
 
         resolve: {
@@ -102,10 +37,6 @@ module.exports = function(options) {
                 path.resolve(cwd, 'src'),
             ],
             extensions: ['.tsx', '.ts', '.js'],
-            // alias: {
-            //     'module': 'new-module',
-            //     // alias 'module' -> 'new-module' and 'module/path/file' -> 'new-module/path/file'
-            // },
         },
 
         target: 'web',

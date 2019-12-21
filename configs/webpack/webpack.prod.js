@@ -1,29 +1,27 @@
 /* eslint-disable */
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
+const cssExtractLoader = require('./loaders/cssExtractLoader');
+
+const terserPlugin = require('./plugins/terserPlugin');
+const cssExtractPlugin = require('./plugins/cssExtractPlugin');
+const cleanWebpackPlugin = require('./plugins/cleanWebpackPlugin');
 
 module.exports = require('./webpack.base')({
     mode: 'production',
 
     optimization: {
         minimize: true,
-        minimizer: [new TerserPlugin()],
+        minimizer: [terserPlugin()],
     },
 
     // Only hashes for images and classes in production
     imageNames: '[hash].[ext]',
     cssClassNames: '[hash]',
 
+    cssInjectLoader: cssExtractLoader(),
 
     plugins: [
-        // Extract own styles in external css file
-        new MiniCssExtractPlugin({
-            filename: '[name]_[hash].css',
-            chunkFilename: '[id].css',
-        }),
-        // Remove previous build
-        // For some reason 'cleanOnceBeforeBuildPatterns' does nothing
-        new CleanWebpackPlugin({ cleanAfterEveryBuildPatterns: ['./build'], verbose: true }),
+        cssExtractPlugin(),
+        cleanWebpackPlugin(true),
     ],
 });
