@@ -15,5 +15,5 @@ module.exports = require('./webpack.base')({
         contentBase: path.join(cwd, 'src'),
         port: 3000,
         // hot: true,
-    }
+    },
 });

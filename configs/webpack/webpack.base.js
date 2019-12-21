@@ -3,7 +3,7 @@ const cwd = process.cwd();
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = function (options) {
+module.exports = function(options) {
     return {
         entry: './src/app.tsx',
         output: {
@@ -31,13 +31,13 @@ module.exports = function (options) {
                     exclude: /node_modules/,
                     loaders: [
                         {
-                            loader: "babel-loader",
+                            loader: 'babel-loader',
                             options: {
-                                configFile: path.join(cwd, 'configs/babel/babel.config.js')
-                            }
+                                configFile: path.join(cwd, 'configs/babel/babel.config.js'),
+                            },
                         },
                         'ts-loader',
-                    ]
+                    ],
                 },
                 // Load own styles
                 {
@@ -54,18 +54,18 @@ module.exports = function (options) {
                                     mode: 'local',
                                     localIdentName: options.cssClassNames,
                                 },
-                                importLoaders: 1
-                            }
+                                importLoaders: 1,
+                            },
                         },
                         {
                             loader: 'postcss-loader',
                             options: {
                                 config: {
-                                    path: path.join(cwd, 'configs/postcss/postcss.config.js')
-                                }
-                            }
-                        }
-                    ]
+                                    path: path.join(cwd, 'configs/postcss/postcss.config.js'),
+                                },
+                            },
+                        },
+                    ],
                 },
                 // Load lib styles
                 {
@@ -74,7 +74,7 @@ module.exports = function (options) {
                     include: /node_modules/,
                     loaders: ['style-loader', 'css-loader'],
                 },
-            ]
+            ],
         },
 
         plugins: [
@@ -99,9 +99,9 @@ module.exports = function (options) {
         resolve: {
             modules: [
                 'node_modules',
-                path.resolve(cwd, 'src')
+                path.resolve(cwd, 'src'),
             ],
-            extensions: ['.tsx', '.ts', '.js']
+            extensions: ['.tsx', '.ts', '.js'],
             // alias: {
             //     'module': 'new-module',
             //     // alias 'module' -> 'new-module' and 'module/path/file' -> 'new-module/path/file'
@@ -113,5 +113,5 @@ module.exports = function (options) {
         devServer: options.devServer,
         devtool: options.devtool,
         optimization: options.optimization,
-    }
+    };
 };
