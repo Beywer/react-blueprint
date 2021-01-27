@@ -5,6 +5,6 @@ module.exports = function() {
     return {
         test: /\.(ts|tsx)/,
         exclude: /node_modules/,
-        loaders: [babelLoader(), tsLoader()],
+        use: [babelLoader(), tsLoader()],
     };
 };

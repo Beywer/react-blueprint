@@ -13,7 +13,7 @@ module.exports = function(injectLoader, classNamesFormat) {
     return {
         test: /\.scss$/,
         exclude: /node_modules|global.scss/,
-        loaders: [
+        use: [
             injectLoader,
             cssLoader({ mode: 'local', localIdentName: classNamesFormat }, 2),
             postcssLoader(),

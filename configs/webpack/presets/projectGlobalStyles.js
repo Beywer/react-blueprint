@@ -13,7 +13,7 @@ module.exports = function(injectLoader) {
         test: /\.scss$/,
         include: /global.scss/,
         exclude: /node_modules/,
-        loaders: [
+        use: [
             injectLoader,
             cssLoader(false, 2),
             postcssLoader(),

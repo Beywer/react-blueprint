@@ -12,7 +12,7 @@ module.exports = function(injectLoader) {
         test: /\.css$/,
         exclude: /src/,
         include: /node_modules/,
-        loaders: [
+        use: [
             injectLoader,
             cssLoader(false, 1),
             postcssLoader(),
