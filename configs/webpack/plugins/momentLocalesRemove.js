@@ -9,11 +9,6 @@ const webpack = require('webpack');
  *
  * @returns {webpack.ContextReplacementPlugin}
  */
-module.exports = function() {
-    return new webpack.ContextReplacementPlugin(
-        /\.\/locale$/,
-        'empty-module',
-        false,
-        /js$/,
-    );
+module.exports = function () {
+    return new webpack.ContextReplacementPlugin(/\.\/locale$/, 'empty-module', false, /js$/);
 };

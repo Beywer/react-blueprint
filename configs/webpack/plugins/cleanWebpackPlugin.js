@@ -7,6 +7,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
  * @param opts - other plugin options
  * @returns {CleanWebpackPlugin}
  */
-module.exports = function(verbose, opts = {}) {
+module.exports = function (verbose, opts = {}) {
     return new CleanWebpackPlugin({ verbose, ...opts });
 };

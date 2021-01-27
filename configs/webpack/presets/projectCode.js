@@ -1,7 +1,7 @@
 const babelLoader = require('../loaders/babelLoader');
 const tsLoader = require('./../loaders/tsLoader');
 
-module.exports = function() {
+module.exports = function () {
     return {
         test: /\.(ts|tsx)/,
         exclude: /node_modules/,

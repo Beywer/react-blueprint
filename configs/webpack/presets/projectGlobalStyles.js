@@ -8,16 +8,11 @@ const sassLoader = require('../loaders/sassLoader');
  * @param injectLoader - loader for delivering styles to page. Example: style-loader for dev and extract-loader for prod.
  * @returns {{loaders: [*, *, *, *], test: RegExp, exclude: RegExp}}
  */
-module.exports = function(injectLoader) {
+module.exports = function (injectLoader) {
     return {
         test: /\.scss$/,
         include: /global.scss/,
         exclude: /node_modules/,
-        use: [
-            injectLoader,
-            cssLoader(false, 2),
-            postcssLoader(),
-            sassLoader(),
-        ],
+        use: [injectLoader, cssLoader(false, 2), postcssLoader(), sassLoader()],
     };
 };

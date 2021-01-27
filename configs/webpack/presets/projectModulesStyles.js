@@ -9,7 +9,7 @@ const sassLoader = require('../loaders/sassLoader');
  * @param classNamesFormat - CSS-Modules class names format definition
  * @returns {{loaders: [*, *, *, *], test: RegExp, exclude: RegExp}}
  */
-module.exports = function(injectLoader, classNamesFormat) {
+module.exports = function (injectLoader, classNamesFormat) {
     return {
         test: /\.scss$/,
         exclude: /node_modules|global.scss/,

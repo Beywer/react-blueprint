@@ -1,6 +1,6 @@
 const path = require('path');
 
-module.exports = function() {
+module.exports = function () {
     return {
         loader: 'babel-loader',
         options: {

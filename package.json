@@ -12,7 +12,7 @@
     "tslint:fix": "npm run tslint -- --fix",
     "stylelint": "stylelint src/**/*.scss",
     "stylelint:fix": "npm run stylelint -- --fix",
-    "prettier": "prettier src/**/*.{ts,tsx,scss} --write"
+    "prettier": "prettier src/**/*.{ts,tsx,scss} configs/**/*.js --write"
   },
   "dependencies": {
     "classnames": "^2.2.6",

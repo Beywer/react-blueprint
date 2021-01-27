@@ -20,8 +20,5 @@ module.exports = require('./webpack.base')({
 
     cssInjectLoader: cssExtractLoader(),
 
-    plugins: [
-        cssExtractPlugin(),
-        cleanWebpackPlugin(true),
-    ],
+    plugins: [cssExtractPlugin(), cleanWebpackPlugin(true)],
 });
