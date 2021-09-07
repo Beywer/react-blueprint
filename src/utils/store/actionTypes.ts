@@ -5,7 +5,7 @@ interface AnyObject {
     [key: string]: any;
 }
 
-export type GeneralThunkAction<R> = ThunkAction<R, AnyObject, undefined, Action>;
+export type GeneralThunkAction<R, Store = AnyObject> = ThunkAction<R, Store, undefined, Action>;
 export type GeneralThunkDispatch = ThunkDispatch<AnyObject, undefined, Action>;
 
 export type PayloadedAction<P> = AnyAction & { payload: P };

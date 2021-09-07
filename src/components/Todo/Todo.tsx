@@ -13,7 +13,7 @@ export class TodoC extends React.Component<Props> {
         this.props.toggleTodo(this.props.id);
     };
 
-    public render() {
+    public override render() {
         const { title, completed, user } = this.props;
         return (
             <div className={styles.todo}>

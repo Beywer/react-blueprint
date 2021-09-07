@@ -5,6 +5,7 @@ import { IRootState } from 'store/rootReducer';
 import { fetchAllTodos } from 'store/todo/todosActions';
 import { usersByIdSelector } from 'store/user/usersSelectors';
 import { GeneralThunkDispatch } from 'utils/store/actionTypes';
+import { User } from '../../domain/User';
 
 let isAllTodosLoading: boolean = false;
 
@@ -19,8 +20,8 @@ function storeTodosSelector(state: IRootState): Todo[] {
 
     const usersById = usersByIdSelector(state);
     return Object.keys(todosById).map((id: string) => {
-        const todo = { ...todosById[id] };
-        todo.user = usersById[todo.userId];
+        const todo = { ...todosById[id] } as Todo;
+        todo.user = usersById[todo.userId] as User;
         return todo;
     });
 }

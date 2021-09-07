@@ -11,11 +11,11 @@ export function saveTodos(todos: Todo[]): SaveTodosAction {
     return { type: SAVE_TODOS, payload: todos };
 }
 
-export type ToggleTodoAction = GeneralThunkAction<void>;
+export type ToggleTodoAction = GeneralThunkAction<void, IRootState>;
 
 export function toggleTodo(todoId: string): ToggleTodoAction {
     return (dispatch, getState: () => IRootState) => {
-        const todo = getState().todos.todosById[todoId];
+        const todo = getState().todos.todosById[todoId] as Todo;
         dispatch(saveTodos([{ ...todo, completed: !todo.completed }]));
     };
 }

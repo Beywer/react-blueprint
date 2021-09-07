@@ -2,14 +2,37 @@
   "compilerOptions": {
     "outDir": "./dist/",
     "baseUrl": "src",
-    "noImplicitAny": true,
-    "strictNullChecks": true,
+
     "sourceMap": true,
     "moduleResolution": "node",
     "module": "esnext",
     "target": "es2018",
     "esModuleInterop": true,
     "jsx": "react",
-    "allowJs": true
+    "allowJs": false,
+
+    // ------- stronger typings -------
+    "strict": true,
+    // enables all next:
+    //    "alwaysStrict": true,
+    //    "noImplicitAny": true,
+    //    "noImplicitThis": true,
+    //    "strictBindCallApply": true,
+    //    "strictFunctionTypes": true,
+    //    "strictNullChecks": true,
+    //    "strictPropertyInitialization": true,
+    //    "useUnknownInCatchVariables": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noUncheckedIndexedAccess": true,
+    // ------- weaker typings -------
+    "allowUnreachableCode": true,
+    // "allowUnusedLabels": undefined, // let IDE decide
+    "noPropertyAccessFromIndexSignature": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": true,
+    // ------- not sure typings -------
+    "exactOptionalPropertyTypes": true
   }
 }
