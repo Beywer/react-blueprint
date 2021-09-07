@@ -19,7 +19,9 @@ module.exports = require('./webpack.base')({
 
     devtool: 'inline-source-map',
     devServer: {
-        contentBase: path.join(cwd, 'src'),
+        static: {
+            directory: path.join(cwd, 'src'),
+        },
         port: 3000,
         // hot: true,
     },
