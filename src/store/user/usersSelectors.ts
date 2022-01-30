@@ -4,7 +4,7 @@ import { IRootState } from 'store/rootReducer';
 import { fetchAllUsers } from 'store/user/usersActions';
 import { GeneralThunkDispatch } from 'utils/store/actionTypes';
 
-let isAllUsersLoaded: boolean = false;
+let isAllUsersLoaded = false;
 
 export const usersByIdSelector = ({
     users: { usersById },

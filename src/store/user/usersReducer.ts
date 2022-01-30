@@ -13,13 +13,14 @@ const initialState: IUsersState = {
 
 export function usersReducer(state: IUsersState = initialState, action: AnyAction): IUsersState {
     switch (action.type) {
-        case SAVE_USERS:
+        case SAVE_USERS: {
             const users = (action as SaveUsersAction).payload;
             const usersById = users.reduce(
                 (acc, user) => insertIntoObject(acc, user.id.toString(), user),
                 {},
             );
             return { ...state, usersById: { ...state.usersById, ...usersById } };
+        }
         default:
             return state;
     }

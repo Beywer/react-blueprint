@@ -7,7 +7,7 @@ import { usersByIdSelector } from 'store/user/usersSelectors';
 import { GeneralThunkDispatch } from 'utils/store/actionTypes';
 import { User } from '../../domain/User';
 
-let isAllTodosLoading: boolean = false;
+let isAllTodosLoading = false;
 
 function storeTodosSelector(state: IRootState): Todo[] {
     const todosById = state.todos.todosById;

@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 const cssExtractLoader = require('./loaders/cssExtractLoader');
 
 const terserPlugin = require('./plugins/terserPlugin');

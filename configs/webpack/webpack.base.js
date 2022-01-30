@@ -10,15 +10,7 @@ const libStyles = require('./presets/libStyles');
 const htmlWebpackPlugin = require('./plugins/htmlWebpackPlugin');
 const definePlugin = require('./plugins/definePlugin');
 
-module.exports = function ({
-    mode,
-    optimization,
-    imageNames,
-    cssClassNames,
-    cssInjectLoader,
-    plugins,
-    ...rest
-}) {
+module.exports = function ({ mode, imageNames, cssClassNames, cssInjectLoader, plugins, ...rest }) {
     return {
         entry: './src/app.tsx',
         output: {
