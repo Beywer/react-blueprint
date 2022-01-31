@@ -1,4 +1,3 @@
-/* eslint-disable */
 const env = process.env.NODE_ENV;
 
 const cssNanoOptions = {
