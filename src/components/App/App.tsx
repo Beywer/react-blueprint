@@ -1,7 +1,7 @@
 import { TodosList } from 'components/TodoList/TodosList';
 import { Todo } from 'domain/Todo';
 import image from 'images/test.svg';
-import * as React from 'react';
+import React from 'react';
 import styles from './App.scss';
 
 interface Props {

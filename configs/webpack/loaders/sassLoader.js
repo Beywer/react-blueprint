@@ -1,8 +1,12 @@
-module.exports = function () {
-    return {
-        loader: 'sass-loader',
-        options: {
-            sourceMap: process.env.NODE_ENV === 'development',
-        },
-    };
+const { isDev } = require('../buildValues');
+
+module.exports = {
+    sassLoader: function () {
+        return {
+            loader: 'sass-loader',
+            options: {
+                sourceMap: isDev,
+            },
+        };
+    },
 };

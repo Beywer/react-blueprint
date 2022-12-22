@@ -1,6 +1,6 @@
 import { TodoC } from 'components/Todo/Todo';
 import { Todo } from 'domain/Todo';
-import * as React from 'react';
+import React from 'react';
 import styles from './TodoList.scss';
 
 interface Props {

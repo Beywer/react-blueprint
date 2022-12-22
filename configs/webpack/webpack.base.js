@@ -1,14 +1,12 @@
 const path = require('path');
 const cwd = process.cwd();
 
-const projectCode = require('./presets/projectCode');
-const projectAssets = require('./presets/projectAssets');
-const projectModulesStyles = require('./presets/projectModulesStyles');
-const projectGlobalStyles = require('./presets/projectGlobalStyles');
-const libStyles = require('./presets/libStyles');
+const { htmlWebpackPlugin } = require('./plugins/htmlPlugin');
+const { definePlugin } = require('./plugins/definePlugin');
+const { tsCheckerPlugin } = require('./plugins/tsCheckerPlugin');
 
-const htmlWebpackPlugin = require('./plugins/htmlWebpackPlugin');
-const definePlugin = require('./plugins/definePlugin');
+const { projectSources } = require('./presets/projectSources');
+const { libSources } = require('./presets/libSources');
 
 module.exports = function ({ mode, imageNames, cssClassNames, cssInjectLoader, plugins, ...rest }) {
     return {
@@ -20,15 +18,16 @@ module.exports = function ({ mode, imageNames, cssClassNames, cssInjectLoader, p
 
         module: {
             rules: [
-                projectAssets(imageNames),
-                projectCode(),
-                projectModulesStyles(cssInjectLoader, cssClassNames),
-                projectGlobalStyles(cssInjectLoader),
-                libStyles(cssInjectLoader),
+                ...projectSources({
+                    cssInjectLoader,
+                    classNamesFormat: cssClassNames,
+                    assetNames: imageNames,
+                }),
+                ...libSources({ cssInjectLoader }),
             ],
         },
 
-        plugins: [htmlWebpackPlugin(), definePlugin()].concat(plugins || []),
+        plugins: [htmlWebpackPlugin(), definePlugin(), tsCheckerPlugin()].concat(plugins || []),
 
         resolve: {
             modules: ['node_modules', path.resolve(cwd, 'src')],
@@ -37,11 +36,6 @@ module.exports = function ({ mode, imageNames, cssClassNames, cssInjectLoader, p
 
         target: 'web',
         mode: mode,
-
-        stats: {
-            // Hides massive "Child mini-css-extract-plugin ..." logs
-            children: false,
-        },
 
         ...rest,
     };

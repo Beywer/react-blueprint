@@ -1,10 +1,13 @@
 const path = require('path');
+const { projectRoot } = require('../buildValues');
 
-module.exports = function () {
-    return {
-        loader: 'babel-loader',
-        options: {
-            configFile: path.join(process.cwd(), 'configs/babel/babel.config.js'),
-        },
-    };
+module.exports = {
+    babelLoader: function () {
+        return {
+            loader: 'babel-loader',
+            options: {
+                configFile: path.join(projectRoot, 'configs/babel/babel.config.js'),
+            },
+        };
+    },
 };

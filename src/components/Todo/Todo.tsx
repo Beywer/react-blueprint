@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { UserInfo } from 'components/UserInfo/UserInfo';
 import { Todo } from 'domain/Todo';
-import * as React from 'react';
+import React from 'react';
 import styles from './Todo.scss';
 
 type Props = Todo & {

@@ -1,5 +1,7 @@
-module.exports = function () {
-    return {
-        loader: 'style-loader',
-    };
+module.exports = {
+    styleLoader: function () {
+        return {
+            loader: 'style-loader',
+        };
+    },
 };

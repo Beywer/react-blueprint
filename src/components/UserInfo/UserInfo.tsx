@@ -1,5 +1,5 @@
 import { User } from 'domain/User';
-import * as React from 'react';
+import React from 'react';
 import styles from './UserInfo.scss';
 
 export const UserInfo: React.FC<User> = ({ name, username, phone }) => {

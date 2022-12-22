@@ -1,7 +1,7 @@
 const path = require('path');
 const cwd = process.cwd();
 
-const stylesLoader = require('./loaders/styleLoader');
+const { styleLoader } = require('./loaders/styleLoader');
 
 module.exports = require('./webpack.base')({
     mode: 'development',
@@ -12,7 +12,7 @@ module.exports = require('./webpack.base')({
     imageNames: '[path][name].[ext]',
     cssClassNames: '[path][name]__[local]--[hash:base64:5]',
 
-    cssInjectLoader: stylesLoader(),
+    cssInjectLoader: styleLoader(),
 
     plugins: [],
 
