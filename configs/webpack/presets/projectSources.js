@@ -46,6 +46,6 @@ module.exports = {
 
 const defaultOptions = {
     cssInjectLoader: cssExtractLoader(),
-    classNamesFormat: '[hash]',
+    classNamesFormat: '[fullhash]',
     assetNames: '[name].[ext]',
 };

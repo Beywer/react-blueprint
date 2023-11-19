@@ -10,8 +10,8 @@ module.exports = require('./webpack.base')({
     },
 
     // Only hashes for images and classes in production
-    imageNames: '[hash].[ext]',
-    cssClassNames: '[hash]',
+    imageNames: '[fullhash].[ext]',
+    cssClassNames: '[fullhash]',
 
     cssInjectLoader: cssExtractLoader(),
 

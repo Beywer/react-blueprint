@@ -13,7 +13,7 @@ module.exports = function ({ mode, imageNames, cssClassNames, cssInjectLoader, p
         entry: './src/app.tsx',
         output: {
             path: path.resolve(cwd, 'build'),
-            filename: 'main_[hash].js',
+            filename: 'main_[fullhash].js',
         },
 
         module: {
